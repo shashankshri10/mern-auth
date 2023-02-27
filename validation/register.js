@@ -18,7 +18,7 @@ module.exports = function validateRegisterInput(data){
     {
         errors.email="Email field is required";
     }
-    else if (Validator.isEmail(data.email))
+    else if (!Validator.isEmail(data.email))
     {
         errors.email="Email is invalid";
     }
@@ -37,7 +37,7 @@ module.exports = function validateRegisterInput(data){
     {
         errors.password="Password must be at least 6 characters";
     }
-    if (Validator.equals(data.password,data.password2))
+    if (!Validator.equals(data.password,data.password2))
     {
         errors.password2="Passwords must match"; 
     }
